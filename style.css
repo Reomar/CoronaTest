@@ -1,0 +1,110 @@
+/*---------setup------------*/
+:root{
+    --red : #D26767;
+    --red-secondary :rgb(185, 60, 62);
+    --green :#62C4C3;
+    --text-primary : #262222;
+    --text-secondary : #888888;
+    --button-BG : #FFF3CF;
+    --button-side: #1E3D59;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'Ropa Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+/*---------shared styles----------*/
+.button{
+    height: 2.5rem;
+    width: 60%;
+    max-width: 16.5rem;
+    display: flex;
+    color: white;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+#container{
+    height: 100vh;
+    width: 100vw;
+}
+
+
+/*-------start page---------*/
+
+#start-screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+#logo{
+    max-height: 300px;
+    max-width: 300px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#start-screen h1{
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
+
+#start-button{
+    background-color: var(--red);
+    box-shadow: 0px 0px 15px var(--red);
+    margin-top: 2rem;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+#start-button:active{
+    background-color: var(--red-secondary);
+    box-shadow: 0px 0px 15px var(--red-secondary);
+}
+
+#start-screen P{
+    position: absolute;
+    bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+/*BigScreen Adjustment*/
+@media screen and (min-width: 800px) {
+    #logo{
+        margin-top: 3rem;
+    }
+}
+/*verySmallScreen Adjustment (iphone4)*/
+@media screen and (max-width: 325px) {
+    #logo{
+        max-width: 180px;
+        
+    }
+
+    .button{
+        font-size: 1.5rem;
+        height: 2.4rem;
+    }
+
+
+}
