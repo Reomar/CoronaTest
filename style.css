@@ -3,6 +3,7 @@
     --red : #D26767;
     --red-secondary :rgb(185, 60, 62);
     --green :#62C4C3;
+    --green-secondary:rgb(57, 163, 161);
     --text-primary : #262222;
     --text-secondary : #888888;
     --button-BG : #FFF3CF;
@@ -17,6 +18,8 @@
     font-family: 'Ropa Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
+    color: var(--text-primary);
+    text-decoration: none;
 }
 
 
@@ -34,6 +37,10 @@
     cursor: pointer;
 }
 
+a{
+    color: white;
+}
+
 
 #container{
     height: 100vh;
@@ -41,7 +48,35 @@
 }
 
 
-/*-------start page---------*/
+.punchline{
+    color: var(--text-secondary);
+    font-size:1rem;
+    position: absolute;
+    bottom: 1.5rem;
+}
+/*BigScreen Adjustment*/
+@media screen and (min-width: 650px) {
+    .punchline {
+        position: relative;
+        margin: 1rem  0 0 0;
+        bottom: 0rem;
+        color: var(--text-secondary);
+    }
+}
+/*verySmallScreen Adjustment (iphone4)*/
+@media screen and (max-width: 325px) {
+    .punchline {
+        position: relative;
+        margin: 1rem  0 0 0;
+        bottom: 0rem;
+        color: var(--text-secondary);
+    }
+}
+
+
+
+
+/*--------------------start page------------------------*/
 
 #start-screen{
     display: flex;
@@ -87,17 +122,11 @@
 }
 
 #start-screen P{
-    position: absolute;
-    bottom: 1.5rem;
+  
     color: var(--text-secondary);
 }
 
-/*BigScreen Adjustment*/
-@media screen and (min-width: 800px) {
-    #logo{
-        margin-top: 3rem;
-    }
-}
+
 /*verySmallScreen Adjustment (iphone4)*/
 @media screen and (max-width: 325px) {
     #logo{
@@ -112,7 +141,7 @@
 }
 
 
-/*-----------Quiz Screen---------------------*/
+/*----------------------Quiz Screen---------------------*/
 
 #quiz-screen{
     display: flex;
@@ -120,6 +149,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    display: none;
 }
 
 #quiz-screen img{
@@ -169,7 +199,7 @@
     border: 0.4px solid var(--button-side);
     display: inline-block;
     border-radius: 50%;
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-right : 0.2rem;
 }
 
@@ -192,12 +222,73 @@
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
         margin: auto;
-        margin-top: 5%;
+        margin-top: 3.5%;
         padding: 2rem;
     }
 
     #quiz-screen img{
         margin: 0 0 1rem 0;
     }
+}
+
+/*-------------------Score Screen---------------------*/
+
+#score-screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#score-screen img{
+    margin-top: 2rem;
 
 }
+
+#score{
+    margin-top: 2rem;
+    font-size: 3rem;
+}
+
+#score-screen h1{
+    font-size: 1.8rem;
+    margin: 2rem 2rem 0 2rem;
+}
+
+#score-screen .button{
+    margin-top: 1rem;
+    background-color: var(--green);
+}
+
+#score-screen .button:active{
+    margin-top: 1rem;
+    background-color: var(--green-secondary);
+}
+
+.who{
+    margin-right: 0.3rem;
+    color:#0B6085;
+}
+
+.tracker{
+    color: var(--red);
+}
+
+/*verySmallScreen Adjustment (iphone4)*/
+@media screen and (max-width: 325px) {
+    #score-screen img{
+        width: 30%;
+    }
+
+    #score-screen h1{
+        font-size: 1.2rem;
+        margin: 1rem 0rem 0 0rem;
+    }
+
+    #score{
+        margin-top: 0.5rem;
+        font-size: 2.5rem;
+    }
+}
+
