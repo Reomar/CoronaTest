@@ -6,6 +6,7 @@
     <title>CoronaTest</title>
 
     <link rel="stylesheet" href="style.css">
+    <script defer src="logic.js"></script>
 
      <!--fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap" rel="stylesheet">
@@ -13,80 +14,33 @@
 </head>
 <body>
     <div id="container">
-        
+
         <div id="start-screen">
             <img id="logo" src="img/logo.png" >
             <h1>Test your konwldge in CoronaVirus</h1>
-            <div class="button" id="start-button" onclick="generateQuestion()" >Start</div>
+            <div class="button" id="start-button" onclick="start()" >Start</div>
             <p class="punchline">Stay Home, <br/> Stay Safe.</p>
 
         </div>
 
 
-        <div id="quiz-screen">
-            <img src="img/1.png">
+        <div id="quiz-screen" class="hidden">
+            <div id="img-cotainer"></div>
+
             <h2 id="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tenetur facere accusamus?</h1>
-            
-            <div class="choise-bg">
-                <div class="number-bg">
-                    <p class="choise-number">A</p>
-                </div>
-                <div class="choise">Lorem ipsum dolor</div>
-            </div>   
-            
-            <div class="choise-bg">
-                <div class="number-bg">
-                    <p class="choise-number">B</p>
-                </div>
-                <div class="choise">Lorem ipsum dolor</div>
-            </div>
 
-            <div class="choise-bg">
-                <div class="number-bg">
-                    <p class="choise-number">C</p>
-                </div>
-                <div class="choise">Lorem ipsum dolor</div>
-            </div>
+            <div id="choise-container"></div>
 
-            <div class="choise-bg">
-                <div class="number-bg">
-                    <p class="choise-number">D</p>
-                </div>
-                <div class="choise">Lorem ipsum dolor</div>
-            </div>
-
-            <div id="prgress">
-                <div class="progs-circle correct"></div>
-                <div class="progs-circle wrong"></div>
-                <div class="progs-circle"></div>
-                <div class="progs-circle"></div>
-                <div class="progs-circle"></div>
-                <div class="progs-circle"></div>
-                <div class="progs-circle"></div>
-                <div class="progs-circle"></div>
-                <div class="progs-circle"></div>
-                <div class="progs-circle"></div>
-                <div class="progs-circle"></div>
-            </div>            
+            <div id="prgress"></div>
         </div>
 
 
-        <div id="score-screen">
-            <img src="img/good.svg">
+        <div id="score-screen" class="hidden">
+            
+           <div id="emoji-container"></div> 
             <p id="score">98%</p>
 
-            <div id="prgress">
-                <div class="progs-circle correct"></div>
-                <div class="progs-circle wrong"></div>
-                <div class="progs-circle wrong"></div>
-                <div class="progs-circle correct"></div>
-                <div class="progs-circle correct"></div>
-                <div class="progs-circle correct"></div>
-                <div class="progs-circle correct"></div>
-                <div class="progs-circle correct"></div>
-                <div class="progs-circle correct"></div>
-                <div class="progs-circle wrong"></div>
-                <div class="progs-circle correct"></div>
+            <div id="answer-bar">
             </div>        
 
             <h1>

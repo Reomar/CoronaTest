@@ -18,10 +18,12 @@
     font-family: 'Ropa Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
-    color: var(--text-primary);
     text-decoration: none;
 }
 
+body{
+    color: var(--text-primary);
+}
 
 /*---------shared styles----------*/
 .button{
@@ -46,7 +48,6 @@ a{
     height: 100vh;
     width: 100vw;
 }
-
 
 .punchline{
     color: var(--text-secondary);
@@ -84,8 +85,6 @@ a{
     justify-content: center;
     align-items: center;
     align-content: center;
-
-    display: none;
 }
 
 
@@ -149,16 +148,26 @@ a{
     justify-content: center;
     align-items: center;
     align-content: center;
-    display: none;
 }
 
 #quiz-screen img{
+    width: 128px;
+    height: 128px;
     margin: 2rem 0;
 }
 
 #question{
     margin: 0 2rem 0.5rem 2rem;
     text-align: center;
+}
+
+#choise-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 .choise-bg{
@@ -179,6 +188,7 @@ a{
 }
 
 .number-bg{
+    color: white;
     width: 20%;
     max-width: 50px;
     height: 100%;
@@ -187,7 +197,6 @@ a{
     align-items: center;
     border-radius: 20px ;
     background-color: var(--button-side);
-    color: white;
     margin-right: 1rem;
 }
 
@@ -213,6 +222,16 @@ a{
     background-color: var(--red);
 }
 
+.greenGlow{
+    border: 2px solid var(--green);
+    box-shadow: 0 0 10px var(--green)
+}
+
+.redGlow{
+    border: 2px solid var(--red);
+    box-shadow: 0 0 10px var(--red);
+}
+
 
 /*BigScreen Adjustment*/
 @media screen and (min-width: 650px) {
@@ -234,6 +253,14 @@ a{
 /*-------------------Score Screen---------------------*/
 
 #score-screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#emoji-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -277,18 +304,27 @@ a{
 
 /*verySmallScreen Adjustment (iphone4)*/
 @media screen and (max-width: 325px) {
-    #score-screen img{
-        width: 30%;
+    #emoji-container img{
+        width: 70%;
+        margin-bottom: 0.2rem;
     }
 
     #score-screen h1{
-        font-size: 1.2rem;
-        margin: 1rem 0rem 0 0rem;
+        font-size: 1.5rem;
+        margin: 1rem 0rem 0 0.2rem;
     }
 
     #score{
         margin-top: 0.5rem;
         font-size: 2.5rem;
     }
+
+    .button{
+        font-size: 1.2rem;
+    }
 }
 
+/*-------------------------*/
+.hidden{
+    display: none !important;
+}
