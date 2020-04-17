@@ -19,6 +19,7 @@
     font-style: normal;
     font-weight: normal;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body{
@@ -106,13 +107,6 @@ a{
     background-color: var(--red);
     box-shadow: 0px 0px 15px var(--red);
     margin-top: 2rem;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
 }
 
 #start-button:active{
@@ -215,21 +209,25 @@ a{
 .correct{
     border: 0;
     background-color: var(--green);
+    transition: 600ms;
 }
 
 .wrong{
     border: 0;
     background-color: var(--red);
+    transition: 600ms;
 }
 
 .greenGlow{
     border: 2px solid var(--green);
-    box-shadow: 0 0 10px var(--green)
+    box-shadow: 0 0 10px var(--green);
+    transition: 90ms;
 }
 
 .redGlow{
     border: 2px solid var(--red);
     box-shadow: 0 0 10px var(--red);
+    transition: 90ms;
 }
 
 
@@ -276,6 +274,15 @@ a{
 #score{
     margin-top: 2rem;
     font-size: 3rem;
+}
+
+#answer-bar{
+    margin-top: 0.7rem;
+}
+
+#answer-bar .progs-circle{
+    margin-top: 0rem;
+    margin-right: 0.4rem;
 }
 
 #score-screen h1{
@@ -327,4 +334,48 @@ a{
 /*-------------------------*/
 .hidden{
     display: none !important;
+}
+
+
+.fadeout{
+    animation: fadeout 0.5s ease forwards;
+}
+
+.fadein{
+    animation: fadein 0.5s ease;
+}
+
+.isright{
+    animation: right 0.3s ease;
+    animation-iteration-count: infinite;
+}
+
+.iswrong{
+    animation: wrong 0.3s ease;
+    animation-iteration-count: infinite;
+}
+
+
+/*----------------------ANIMATIONS----------------------*/
+
+@keyframes wrong{
+    0%{transform: translateX(0px);}
+    50%{transform: translateX(-3px);}
+    100%{transform: translateX(3px);}
+}
+
+@keyframes right{
+    0%{transform: rotate(0deg);}
+    50%{transform: rotate(-1.5deg);}
+    100%{transform: rotate(1.5deg);}
+}
+
+@keyframes fadeout{
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+@keyframes fadein{
+    from{opacity: 0; transform: translateY(100px);}
+    to{opacity: 1; transform: translateY(0px);}
 }

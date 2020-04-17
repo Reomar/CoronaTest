@@ -54,15 +54,21 @@ let questions = [    {
 
 //score tracker
 let score = 0;
-
+//Answers traker to display progress in scoreScreen
 answers =[];
 
 //when Start button is clicked
 function start(){
+
+    // ADD ANIMATIONS CLASSES TO ELEMENTS TO FADEIN & FADEOUT
     startScreen.classList.add('hidden')
+
     quizScreen.classList.remove('hidden')
-    //start generating questions
-    renderProgress();
+    quizScreen.classList.add('fadein')
+
+
+    //reder progress bar which will start displaying questions
+    renderProgress()
 };
 
 
@@ -84,7 +90,7 @@ function generateQuestion(){
         for(i=0 ; i < questions[currentQuestion].choicesNumber ; i++){
             let choiseTag = numbersToLetters(i)
     
-            choiseContainer.innerHTML += `<div id="${choiseTag}" class="choise-bg" onclick="checkAnswer('${choiseTag}')">
+            choiseContainer.innerHTML += `<div id="${choiseTag}" class="choise-bg fadein" onclick="checkAnswer('${choiseTag}')">
                                         <div class="number-bg">
                                             <p class="choise-number">${choiseTag.toUpperCase()}</p>
                                         </div>
@@ -128,6 +134,7 @@ function renderProgress(){
     for(i=0 ; i < quizSize ; i++){
         progress.innerHTML += `<div id="prog-${i}" class="progs-circle"></div>`
     }
+    //start Rendering questions
     generateQuestion()
 }
 
@@ -136,7 +143,7 @@ function checkAnswer(x){
     if (x == questions[currentQuestion].correct){
         answerIsCorrect(x)
     }else{
-        answerIsWrong()
+        answerIsWrong(x)
     }
 }
 
@@ -151,30 +158,49 @@ function answerIsCorrect(x){
     
     //change progress to green
     document.getElementById(`prog-${currentQuestion}`).classList.add('correct')
+    
+    //Add green glow 
+    document.getElementById(x).classList.add("greenGlow")
+
+    //add animation
+    document.getElementById(x).classList.add("isright")
+    
 
     //return to questions
     currentQuestion++
-    generateQuestion()
+    setTimeout(() =>generateQuestion()  , 1000 )
 }
 
 //If Answer Is wrong
-function answerIsWrong(){
+function answerIsWrong(x){
     //change progress to red
     document.getElementById(`prog-${currentQuestion}`).classList.add('wrong')
     
     //add tag to question
     answers.push('wrong')
-    
-    
+
+    //Hightight wrong answer glow 
+    document.getElementById(x).classList.add("redGlow")
+
+    //Animate the wrong answer
+    document.getElementById(x).classList.add("iswrong")
+
+    // HIGHLIGHT RIGHT ANSWER
+    document.getElementById(questions[currentQuestion].correct).classList.add("greenGlow")
+
     //return to questions
     currentQuestion++
-    generateQuestion()
+    setTimeout(() =>generateQuestion()  , 2000 )
 }
 
 
 function veiwScore(){
+    //remove quizScreen
     quizScreen.classList.add("hidden")
+    //Display scoreScreen
     socreScreen.classList.remove('hidden')
+    //Animate the scorescreen
+    socreScreen.classList.add('fadein')
 
     let scorePercentage = calculateScore()
 
@@ -199,6 +225,7 @@ function veiwScore(){
 
 }
 
+//Function that calculate score
 function calculateScore(){
     return Math.ceil((score / quizSize) * 100)
 }
