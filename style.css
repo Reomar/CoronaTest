@@ -42,6 +42,7 @@ body{
 
 a{
     color: white;
+    text-decoration: none;
 }
 
 
@@ -408,7 +409,4 @@ body:lang(ar){
     font-family: 'Tajawal', sans-serif !important;
 }
 
-a:lang(ar){
-    text-decoration: none;
-}
                

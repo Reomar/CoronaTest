@@ -201,6 +201,15 @@ function renderProgress(){
 
 //checking Answers
 function checkAnswer(x){
+    
+    //remove on click attrbute 
+    chosietap = document.getElementsByClassName("choise-bg")
+
+    for(i = 0; i < chosietap.length ; i++){
+        chosietap[i].onclick = null;
+    }
+
+
     if (x == questions[currentQuestion].correct){
         answerIsCorrect(x)
     }else{
