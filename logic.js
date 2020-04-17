@@ -17,40 +17,80 @@
 
 
 //THE QUIZ QUESTIONS
-let questions = [    {
-    question:"what's your name",
-    a : "omar",
-    b : "malek",
-    c : "amr",
-    d : "huda",
-    choicesNumber: 4,
-    correct : "a"
-},
-{
-    question:"what's your age",
-    a : "1",
-    b : "2",
-    c : "3",
-    d : "4",
-    choicesNumber: 4,
-    correct : "b"
-},
-{
-    question:"what's your kab",
-    a : "lorm",
-    b : "ze[la",
-    c : "jofdokofksd",
-    d : "hathut",
-    choicesNumber: 4,
-    correct : "c"
-}, 
-{
-    question:"what do you doo fo dooo",
-    a : "ya",
-    b : "na",
-    choicesNumber: 2,
-    correct : "a"
-}];
+let questions =[]
+
+//determine the question 
+if(document.documentElement.lang == "en"){
+    questions = [    {
+        question:"what's your name",
+        a : "omar",
+        b : "malek",
+        c : "amr",
+        d : "huda",
+        choicesNumber: 4,
+        correct : "a"
+    },
+    {
+        question:"what's your age",
+        a : "1",
+        b : "2",
+        c : "3",
+        d : "4",
+        choicesNumber: 4,
+        correct : "b"
+    },
+    {
+        question:"what's your kab",
+        a : "lorm",
+        b : "ze[la",
+        c : "jofdokofksd",
+        d : "hathut",
+        choicesNumber: 4,
+        correct : "c"
+    }, 
+    {
+        question:"what do you doo fo dooo",
+        a : "ya",
+        b : "na",
+        choicesNumber: 2,
+        correct : "a"
+    }];
+}else if(document.documentElement.lang == "ar"){
+    questions = [    {
+        question:"لماذا يعيش السمك بالماء",
+        a : "انت بتقوول ايه",
+        b : "السلاااامو عليكم",
+        c : "صبح صباح ياعم الحج",
+        d : "انا  فين انا مين ",
+        choicesNumber: 4,
+        correct : "a"
+    },
+    {
+        question:"طب بص هقولك حاجة",
+        a : "الدنية",
+        b : "مش",
+        c : "محتاجة",
+        d : "اه",
+        choicesNumber: 4,
+        correct : "b"
+    },
+    {
+        question:"نادي القرن الافريقي",
+        a : "الاهلي",
+        b : "الاهلي",
+        c : "الاهلي",
+        d : "ريال مدريد",
+        choicesNumber: 4,
+        correct : "c"
+    }, 
+    {
+        question:"العب العب العب ",
+        a : "اه",
+        b : "لا",
+        choicesNumber: 2,
+        correct : "a"
+    }];
+}
 
 //score tracker
 let score = 0;
@@ -92,7 +132,7 @@ function generateQuestion(){
     
             choiseContainer.innerHTML += `<div id="${choiseTag}" class="choise-bg fadein" onclick="checkAnswer('${choiseTag}')">
                                         <div class="number-bg">
-                                            <p class="choise-number">${choiseTag.toUpperCase()}</p>
+                                            <p class="choise-number">${englishToArabic(choiseTag).toUpperCase()}</p>
                                         </div>
                                         <div class="choise">${questions[currentQuestion][choiseTag]}</div>
                                         </div>`
@@ -126,6 +166,27 @@ function numbersToLetters(x){
             break           
     }
 
+    return letter;
+}
+
+//change English to arabic letters
+function englishToArabic(letter){
+    if(document.documentElement.lang == "ar"){
+        switch (letter){
+            case "a":
+                letter = "ا"
+                break;
+            case "b":
+                letter = "ب"
+                break;
+            case "c":
+                letter = "ج"
+                break;
+            case "d":
+                letter = "د"
+                break;            
+        }
+    }
     return letter;
 }
 

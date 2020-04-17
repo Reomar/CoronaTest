@@ -15,15 +15,15 @@
     margin: 0;
     padding: 0;
     outline: none;
-    font-family: 'Ropa Sans', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
 
 body{
     color: var(--text-primary);
+    font-family: 'Ropa Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
 }
 
 /*---------shared styles----------*/
@@ -90,8 +90,8 @@ a{
 
 
 #logo{
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 250px;
+    max-width: 250px;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -99,8 +99,13 @@ a{
 #start-screen h1{
     color: var(--text-primary);
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin: 0 1rem;
+}
+
+#slogan{
+    text-align: center;
+    margin: 0.5rem 1rem 0 1rem;
 }
 
 #start-button{
@@ -112,6 +117,15 @@ a{
 #start-button:active{
     background-color: var(--red-secondary);
     box-shadow: 0px 0px 15px var(--red-secondary);
+}
+
+#lang-change{
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-decoration: underline;
+    cursor: pointer;
+
 }
 
 #start-screen P{
@@ -379,3 +393,22 @@ a{
     from{opacity: 0; transform: translateY(100px);}
     to{opacity: 1; transform: translateY(0px);}
 }
+
+/*
+---------------------------ARABIC LANGUAGE---------------------
+*/
+
+.number-bg:lang(ar) {
+    /* styles for elements determined to be in Arabic */
+       margin-right: 0;
+       margin-left: 1rem;
+}
+
+body:lang(ar){
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+a:lang(ar){
+    text-decoration: none;
+}
+               
