@@ -76,18 +76,19 @@ a{
     }
 }
 
-
-
-
-/*--------------------start page------------------------*/
-
-#start-screen{
+.flexbox{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
 }
+
+
+
+
+/*--------------------start page------------------------*/
+
 
 
 #logo{
@@ -151,14 +152,6 @@ a{
 
 /*----------------------Quiz Screen---------------------*/
 
-#quiz-screen{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-
 #quiz-screen img{
     width: 128px;
     height: 128px;
@@ -172,11 +165,6 @@ a{
 
 #choise-container{
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
 }
 
 .choise-bg{
@@ -255,6 +243,7 @@ a{
         border-radius: 10px;
         margin: auto;
         margin-top: 3.5%;
+        margin-bottom: 3rem;
         padding: 2rem;
     }
 
@@ -265,25 +254,9 @@ a{
 
 /*-------------------Score Screen---------------------*/
 
-#score-screen{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-
-#emoji-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
 
 #score-screen img{
     margin-top: 2rem;
-
 }
 
 #score{
@@ -322,6 +295,44 @@ a{
 
 .tracker{
     color: var(--red);
+}
+
+#corection-container{
+    width: 60%;
+    max-width: 16.5rem;
+    margin-top: 0.5rem;
+    text-align: start;
+    justify-content: center;
+}
+
+.correction{
+    margin-top: 1rem;
+    background-color: var(--green);
+    color: white;
+    opacity: 0.8;
+    font-size: 1rem;
+    font-weight: 100;
+    width: 100%;
+    padding: 0.7rem;
+    border: 1.5px solid var(--green-secondary);
+    box-shadow: 0 0 5px var(--green);
+    border-radius: 5px;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.correction span{
+    opacity: 1;
+}
+.correction p{
+    margin-left: 0.8rem;
+    opacity: 1;
+}
+
+#last-punchline{
+    position: relative;
+    display: block;
+    margin-top: 3rem;
 }
 
 /*verySmallScreen Adjustment (iphone4)*/
@@ -409,4 +420,9 @@ body:lang(ar){
     font-family: 'Tajawal', sans-serif !important;
 }
 
+
+.correction p:lang(ar){
+    margin-left: 0;
+    margin-right: 0.8rem;
+}
                

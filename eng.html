@@ -15,10 +15,10 @@
 <body>
     <div id="container">
 
-        <div id="start-screen">
+        <div id="start-screen" class="flexbox">
             <img id="logo" src="img/logo.png" >
             <h1>CoronaTest</h1>
-            <p id="slogan">Let's find out if u know enough about covid 19 to be safe</p>
+            <p id="slogan">Let's find out if you know enough about covid 19 to be safe</p>
             <div class="button" id="start-button" onclick="start()" >Start</div>
             <a id="lang-change" href="index.html">عربي</a>
             <p class="punchline">Stay Home, <br/> Stay Safe.</p>
@@ -26,24 +26,25 @@
         </div>
 
 
-        <div id="quiz-screen" class="hidden">
+        <div id="quiz-screen" class="hidden flexbox">
             <div id="img-cotainer"></div>
 
             <h2 id="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tenetur facere accusamus?</h1>
 
-            <div id="choise-container"></div>
+            <div id="choise-container" class="flexbox"></div>
 
             <div id="prgress"></div>
         </div>
 
 
-        <div id="score-screen" class="hidden">
-            
-           <div id="emoji-container"></div> 
+        <div id="score-screen" class="hidden flexbox">
+             
+           <div id="emoji-container" class="flexbox"></div> 
             <p id="score">98%</p>
 
-            <div id="answer-bar">
-            </div>        
+            <div id="answer-bar"></div>        
+
+            <div id="corection-container" class="flexbox"></div>
 
             <h1>
                 Improve your knowlgde,</br> Read more about COVID 19
@@ -65,7 +66,9 @@
                 <span class="tracker">Tracker</span>  
             </a>
 
-            <p class="punchline">Stay Home, <br/> Stay Safe.</p>
+
+
+            <p id="last-punchline" class="punchline">Stay Home, <br/>Stay Safe.</p>
         </div>
     </div>        
 </body>

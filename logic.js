@@ -1,4 +1,4 @@
-//Grapping DOM elements
+//----------------Grapping DOM elements-------------------------------
 
     //home Screen
         let startScreen = document.querySelector("#start-screen");
@@ -14,12 +14,24 @@
         let emoji = document.querySelector('#emoji-container');
         let percentage = document.querySelector('#score')  
         let answerBar = document.querySelector('#answer-bar')
+        let correctionContainer = document.querySelector('#corection-container')
 
+
+//---------------------------Global Variables-------------------------------
+//score tracker
+let score = 0;
+
+//Answers traker to display progressBar in scoreScreen
+answers =[];
+
+//Worng qustion number that will be used to display explanation in scoreScreen
+worngQuestionNumber=[]
 
 //THE QUIZ QUESTIONS
 let questions =[]
 
-//determine the question 
+
+//--------------------Determine question based on choosen Language-------------------- 
 if(document.documentElement.lang == "en"){
     questions = [    {
         question:"what's your name",
@@ -28,7 +40,9 @@ if(document.documentElement.lang == "en"){
         c : "amr",
         d : "huda",
         choicesNumber: 4,
-        correct : "a"
+        correct : "a",
+        reason: "because its #0"
+        
     },
     {
         question:"what's your age",
@@ -37,7 +51,8 @@ if(document.documentElement.lang == "en"){
         c : "3",
         d : "4",
         choicesNumber: 4,
-        correct : "b"
+        correct : "b",
+        reason: "because its #1"
     },
     {
         question:"what's your kab",
@@ -46,15 +61,17 @@ if(document.documentElement.lang == "en"){
         c : "jofdokofksd",
         d : "hathut",
         choicesNumber: 4,
-        correct : "c"
+        correct : "c",
+        reason: "because its #2"
     }, 
     {
         question:"what do you doo fo dooo",
         a : "ya",
         b : "na",
         choicesNumber: 2,
-        correct : "a"
-    }];
+        correct : "a",
+        reason: "because its #3"
+    }];  
 }else if(document.documentElement.lang == "ar"){
     questions = [    {
         question:"لماذا يعيش السمك بالماء",
@@ -63,7 +80,8 @@ if(document.documentElement.lang == "en"){
         c : "صبح صباح ياعم الحج",
         d : "انا  فين انا مين ",
         choicesNumber: 4,
-        correct : "a"
+        correct : "a",
+        reason: "علشان ديه #0"
     },
     {
         question:"طب بص هقولك حاجة",
@@ -72,7 +90,8 @@ if(document.documentElement.lang == "en"){
         c : "محتاجة",
         d : "اه",
         choicesNumber: 4,
-        correct : "b"
+        correct : "b",
+        reason: "علشان ديه #1"
     },
     {
         question:"نادي القرن الافريقي",
@@ -81,23 +100,20 @@ if(document.documentElement.lang == "en"){
         c : "الاهلي",
         d : "ريال مدريد",
         choicesNumber: 4,
-        correct : "c"
+        correct : "c",
+        reason: "علشان ديه #2"
     }, 
     {
         question:"العب العب العب ",
         a : "اه",
         b : "لا",
         choicesNumber: 2,
-        correct : "a"
+        correct : "a",
+        reason: "علشان ديه #3"
     }];
 }
 
-//score tracker
-let score = 0;
-//Answers traker to display progress in scoreScreen
-answers =[];
-
-//when Start button is clicked
+//------------------when Start button is clicked
 function start(){
 
     // ADD ANIMATIONS CLASSES TO ELEMENTS TO FADEIN & FADEOUT
@@ -190,7 +206,7 @@ function englishToArabic(letter){
     return letter;
 }
 
-//render progress
+//render prggrss Cercle
 function renderProgress(){
     for(i=0 ; i < quizSize ; i++){
         progress.innerHTML += `<div id="prog-${i}" class="progs-circle"></div>`
@@ -199,7 +215,7 @@ function renderProgress(){
     generateQuestion()
 }
 
-//checking Answers
+//-----------------------checking Answers
 function checkAnswer(x){
     
     //remove on click attrbute 
@@ -258,12 +274,15 @@ function answerIsWrong(x){
     // HIGHLIGHT RIGHT ANSWER
     document.getElementById(questions[currentQuestion].correct).classList.add("greenGlow")
 
+    //Add Wrong question number to wrongAnswer array to veiw it's correction cause in the Score screen 
+    worngQuestionNumber.push(currentQuestion)
+
     //return to questions
     currentQuestion++
     setTimeout(() =>generateQuestion()  , 2000 )
 }
 
-
+//----------------------------------scoreScreen----------------------------------------------
 function veiwScore(){
     //remove quizScreen
     quizScreen.classList.add("hidden")
@@ -287,6 +306,11 @@ function veiwScore(){
     //Changing score percentage
     percentage.innerText = `${scorePercentage}%`
 
+    //Add wong question reason
+    if(worngQuestionNumber.length > 0){
+        displayReason()
+    }
+
 
     //Adding colored progress bar 
     for(i=0 ; i < quizSize ; i++){
@@ -299,3 +323,15 @@ function veiwScore(){
 function calculateScore(){
     return Math.ceil((score / quizSize) * 100)
 }
+
+//displaying the reason finction
+function displayReason(){
+    for(i=0 ; i < worngQuestionNumber.length ; i++){
+        correctionContainer.innerHTML += `<div class="correction flexbox">
+                                                <span>⚠</span>
+                                                <p>${questions[worngQuestionNumber[i]].reason}</p>
+                                            </div>`
+    }
+}
+
+
