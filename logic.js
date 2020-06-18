@@ -34,18 +34,18 @@ let questions =[]
 //--------------------Determine question based on choosen Language-------------------- 
 if(document.documentElement.lang == "en"){
     questions = [    {
-        question:"what's your name",
-        a : "omar",
-        b : "malek",
-        c : "amr",
-        d : "huda",
+        question:"Lorem ipsum dolor sit amet",
+        a : "quis nostrud exercitation ullamco",
+        b : "ipsum dolor",
+        c : "sit amet",
+        d : "Lorem ipsum",
         choicesNumber: 4,
         correct : "a",
         reason: "because its #0"
         
     },
     {
-        question:"what's your age",
+        question:"quis nostrud exercitation ullamco",
         a : "1",
         b : "2",
         c : "3",
@@ -55,17 +55,17 @@ if(document.documentElement.lang == "en"){
         reason: "because its #1"
     },
     {
-        question:"what's your kab",
-        a : "lorm",
-        b : "ze[la",
-        c : "jofdokofksd",
-        d : "hathut",
+        question:"Lorem ipsum dolor sit amet",
+        a : "Lorem ipsum",
+        b : "ze[Lorem ipsum",
+        c : "Lorem ipsum",
+        d : "Lorem ipsum",
         choicesNumber: 4,
         correct : "c",
         reason: "because its #2"
     }, 
     {
-        question:"what do you doo fo dooo",
+        question:"Lorem ipsum dolor sit amet",
         a : "ya",
         b : "na",
         choicesNumber: 2,
@@ -155,7 +155,7 @@ function generateQuestion(){
         }
 
         //render Img
-        imageContainer.innerHTML =`<img src="img/${currentQuestion}.png">`
+        imageContainer.innerHTML =`<img src="img/${currentQuestion}.svg">`
 
     }else{
         //view Score screen when questions are finished
